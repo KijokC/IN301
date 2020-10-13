@@ -25,6 +25,11 @@ TABINT desalloue_tabint (TABINT T) {
 TABINT gen_alea_tabint (int N, int K) {
 	TABINT T;
 	T = alloue_tabint(N);
+	int i;
+	for(i = 0; i < T.N; i++)
+	{
+			T.val[i] = rand() % K;
+	}
 	return T;
 }
 
@@ -33,10 +38,21 @@ TABINT sup_tabint (TABINT T) {
 }
 
 void aff_tabint (TABINT T) {
+	int i; 
+	for(i = 0; i < T.N; i++)
+	{
+		printf(" %3d",T.val[i]);
+	}
+	printf("\n");
 }
 
-
+//Renvoie 1 si le tableau est croissant et 0 sinon
 int verif_si_tableau_croissant (TABINT T) {
-	return 0;
+	int i;
+	for(i = 0; i < T.N-1; i++)
+	{
+		if(T.val[i] > T.val[i+1]) return 0;
+	}
+	return 1;
 }
 
