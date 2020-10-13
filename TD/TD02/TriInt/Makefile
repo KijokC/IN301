@@ -1,9 +1,4 @@
-visu: stat.pdf
-	evince stat.pdf &
-
-
-stat.pdf: tri_bulle stat.gplt test_tri_bulle.data
-	gnuplot stat.gplt
+	
 
 test_tri_bulle.data: tri_bulle
 	./tri_bulle

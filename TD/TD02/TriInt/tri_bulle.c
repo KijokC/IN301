@@ -1,6 +1,6 @@
 
 #include "tabint.h"
-#include "stat.h"
+//#include "stat.h"
 #include <stdio.h>
 #include <stdlib.h>
 

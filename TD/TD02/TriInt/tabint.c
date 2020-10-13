@@ -1,5 +1,5 @@
 #include "tabint.h"
-#include "stat.h"
+//#include "stat.h"
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -8,13 +8,17 @@
 // 1. Allocation, désallocation, génération aléatoire
 //    et affichage de tableaux
 // #####
-TABINT alloue_tabint (int N) {
+TABINT alloue_tabint (int taille) {
 	TABINT T;
-	T.N = 0;
-	T.val = NULL;
+	T.N = taille;
+	T.val = malloc(taille*sizeof(int));
+	if (T.val == NULL) exit(23);
 	return T;
 }
 TABINT desalloue_tabint (TABINT T) {
+	free(T.val);
+	T.val = NULL;
+	T.N = 0;
 	return T;
 }
 
