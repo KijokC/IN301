@@ -3,6 +3,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+//HELLO
 
 // #####
 // 1. Allocation, désallocation, génération aléatoire

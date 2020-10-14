@@ -29,5 +29,6 @@ clean:
 	rm -f nombres.data
 	rm -f nombres-verif.data
 	rm -f ${ZIPNAME}.zip
+	rm -f debug
 	ls -l
 
