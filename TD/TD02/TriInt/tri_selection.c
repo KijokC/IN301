@@ -3,21 +3,28 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void tri_bulle(TABINT T)
+//Renvoie l'indice du max de T entre les indices [0..fin]
+int recherche_indice_du_max(TABINT T, int fin)
 {
-	int i;
-	int fin = T.N-1;
-	while(fin>0)
+	int i,imax;
+	imax = 0;
+	for(i = 1; i <= fin; i++)
 	{
-		for(i = 0; i < fin; i++)
-		{								//SI pas dans le bon ordre échange
-			if(T.val[i] > T.val[i+1])
-			{
-				int tmp    = T.val[i];
-				T.val[i]   = T.val[i+1];
-				T.val[i+1] = tmp;
-			}
-		}
+		if(T.val[i] > T.val[imax]) imax = i;
+	}
+	return imax;
+}
+
+void tri_selection(TABINT T)
+{
+	int fin = T.N-1;
+	while(fin > 0)
+	{
+		int imax;
+		imax = recherche_indice_du_max(T,fin);
+		int tmp     = T.val[fin];
+		T.val[fin]  = T.val[imax];
+		T.val[imax] = tmp;
 		fin--;
 	}
 }
@@ -40,7 +47,7 @@ int main(int argc, char*argv[])
 	if(N <20) aff_tabint(T);
 	printf("%d\n",verif_si_tableau_croissant(T));
 	
-	tri_bulle(T);
+	tri_selection(T);
 	
 	if(N <20) aff_tabint(T);
 	printf("%d\n",verif_si_tableau_croissant(T));

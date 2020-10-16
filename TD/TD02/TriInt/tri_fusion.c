@@ -69,12 +69,13 @@ int main(int argc, char*argv[])
 	
 	TABINT T;
 	T = gen_alea_tabint(N,100);
-	aff_tabint(T);
+	
+	if(N <20) aff_tabint(T);
 	printf("%d\n",verif_si_tableau_croissant(T));
 	
 	tri_fusion(T);
 	
-	aff_tabint(T);
+	if(N <20) aff_tabint(T);
 	printf("%d\n",verif_si_tableau_croissant(T));
 	
 	exit(0);
