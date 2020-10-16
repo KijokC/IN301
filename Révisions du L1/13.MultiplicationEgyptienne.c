@@ -27,5 +27,5 @@ int main()
 	}
 	
 	Resultat = Y + Reste;
-	printf("= %d",Resultat);
+	printf("= %d\n",Resultat);
 }

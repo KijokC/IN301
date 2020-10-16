@@ -22,6 +22,6 @@ int main()
 	if(Minutes == 0 || Minutes == 1) printf("%d minute ",Minutes);
 	else printf("%d minutes ",Minutes);
 
-	if(Secondes == 0 || Secondes == 1) printf("%d seconde ",Secondes);
-	else printf("%d secondes ",Secondes);
+	if(Secondes == 0 || Secondes == 1) printf("%d seconde\n",Secondes);
+	else printf("%d secondes\n",Secondes);
 }

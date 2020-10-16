@@ -21,6 +21,6 @@ int main()
 		if(m%i == 0) mdiv += i;
 	}
 
-	if(mdiv == n && ndiv == m) printf(" %d et %d sont des nombres amis",m,n);
-	else printf("%d et %d ne sont pas des nombres amis",m,n);
+	if(mdiv == n && ndiv == m) printf(" %d et %d sont des nombres amis\n",m,n);
+	else printf("%d et %d ne sont pas des nombres amis\n",m,n);
 }

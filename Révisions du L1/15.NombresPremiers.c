@@ -15,6 +15,6 @@ int main()
 		if(Check == 0) vof = 1;
 	}
 	
-	if(vof == 0) printf("%d est un nombre premier",Nombre);
-	else printf("%d n'est pas un nombre premier",Nombre);
+	if(vof == 0) printf("%d est un nombre premier\n",Nombre);
+	else printf("%d n'est pas un nombre premier\n",Nombre);
 }
