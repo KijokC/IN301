@@ -29,7 +29,7 @@ void tri_base(Tableau t){
 //tri le tableau entre indices g et d compris
 void tri_rapide(Tableau t, int g, int d){
   //a ecrire
-  strcmp(g,d);
+
 }
 
 
