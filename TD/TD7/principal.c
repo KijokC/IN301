@@ -5,17 +5,18 @@
 #include "exo_41.h"
 #include "exo_42.h"
 #include "exo_43.h"
+#include "exo_45.h"
 
 
 int main() {
 	// EXO 39
 	affn(5);
 	
-	affnrec(4); printf("\n");
-	affnrec(5); printf("\n");
+//	affnrec(4); printf("\n");
+//	affnrec(5); printf("\n");
 	
 	// EXO 40
-	afftailletype();
+//	afftailletype();
 	
 	// EXO 41
 //	compadeux();
@@ -24,7 +25,10 @@ int main() {
 //	compadeux2();
 
 	// EXO 43
-	decalage();
+//	decalage();
+
+	// EXO 45
+	precision();
 
 	return 0;
 }

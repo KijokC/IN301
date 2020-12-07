@@ -1,40 +1,58 @@
+# Définitions de macros
+CC = gcc
+CFLAGS = -c -Wall
+LDFLAGS = -lm
+CSRC = *.c
+OBJS = principal.o\
+	exo_39.o exo_40.o exo_41.o exo_42.o exo_43.o exo_45.o
+
+
+# $@ : nom de la cible.
+# $? : liste des noms des dépendances plus récentes que la cible.
+# $< : nom de la première dépendance.
+# $^ : liste des noms de toutes les dépendances.
+
+# .PHONY run :pour dire que même s'il y a un fichier run,
+# on en tient pas compte
+.PHONY: run
 run: principal
+	echo $(CSRC)
 	./principal
 
-
-principal: principal.o exo_39.o exo_40.o exo_41.o exo_42.o exo_43.o
-	gcc -Wall -o principal principal.o exo_39.o exo_40.o exo_41.o exo_42.o exo_43.o
-
+# $@ : nom de la cible.
+# $^ : liste des noms de toutes les dépendances.
+principal: $(OBJS)
+	$(CC) -o $@ $^ $(LDFLAGS)
 
 principal.o: principal.c *.h
-	gcc -Wall -c principal.c
+	$(CC) $(CFLAGS) $<
 
-exo_39.o: exo_39.c exo_39.h
-	gcc -Wall -c exo_39.c
+# Cible générique pour compiler les fichiers .c qui ont un .h
+# $< : nom de la première dépendance.
+%.o: %.c %.h
+	$(CC) $(CFLAGS) $<
 
-exo_40.o: exo_40.c exo_40.h
-	gcc -Wall -c exo_40.c
-
-exo_41.o: exo_41.c exo_41.h
-	gcc -Wall -c exo_41.c
-
-exo_42.o: exo_42.c exo_42.h
-	gcc -Wall -c exo_42.c
-
-exo_43.o: exo_43.c exo_43.h
-	gcc -Wall -c exo_43.c
+# Cible générique pour compiler les fichiers .c qui N'ont PAS de .h
+# $< : nom de la première dépendance.
+%.o: %.c
+	$(CC) $(CFLAGS) $<
 
 
+.PHONY: clean
 clean:
 	rm -f *.o
 	rm -f principal
 	ls -l
 
+
+DOSSIER = BLOC7
+.PHONY: zip
 zip:
-	rm -rf BLOC7
-	mkdir BLOC7
-	cp *.c *.h Makefile BLOC7
-	zip -r BLOC7.zip BLOC7
-	rm -rf BLOC7
+	rm -rf $(DOSSIER)
+	rm -f $(DOSSIER).zip
+	mkdir $(DOSSIER)
+	cp principal *.o *.c *.h Makefile $(DOSSIER)
+	zip -r $(DOSSIER).zip $(DOSSIER)
+	rm -rf $(DOSSIER)
 	ls -l
 	
